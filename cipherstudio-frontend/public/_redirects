@@ -1,0 +1,5 @@
+# Redirect all requests to index.html (single page app)
+/*    /index.html   200
+
+# Optional: proxy API calls to backend (uncomment and set your backend URL)
+# /api/*  http://localhost:5000/api/:splat  200

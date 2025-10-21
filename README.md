@@ -175,3 +175,19 @@ This project is licensed under the terms of the license in `LICENSE`.
 ---
 
 Questions? Open an issue or check the docs in `Documentations/`.
+
+## Screenshots
+
+Below are a few screenshots from the current build demonstrating the landing page, IDE, dashboard, and keyboard UI.
+
+Landing page
+![Landing page](Screenshots/LandingPage.png)
+
+IDE
+![IDE](Screenshots/IDE.png)
+
+Dashboard
+![Dashboard](Screenshots/Dashboard.png)
+
+Keyboard & shortcuts UI
+![Keyboard UI](Screenshots/KeyboardUI.png)
