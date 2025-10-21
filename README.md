@@ -6,6 +6,22 @@ Browser-based full‑stack IDE for building, previewing, and collaborating on we
 
 CipherStudio is a React + Vite single‑page app with a Node/Express + MongoDB backend. It provides an in‑browser IDE powered by Monaco, instant preview, GitHub repo import without hitting REST rate limits (via codeload tarball streaming), skeleton loading states, and a curated examples gallery that boots directly into the IDE in read‑only mode with a one‑click “Clone to edit” flow.
 
+## Screenshots
+
+Below are a few screenshots from the current build demonstrating the landing page, IDE, dashboard, and keyboard UI.
+
+Landing page
+![Landing page](Screenshots/LandingPage.png)
+
+IDE
+![IDE](Screenshots/IDE.png)
+
+Dashboard
+![Dashboard](Screenshots/Dashboard.png)
+
+Keyboard & shortcuts UI
+![Keyboard UI](Screenshots/KeyboardUI.png)
+
 ## Features
 
 - Modern landing page with an amber brand theme and animated floating icons
@@ -175,19 +191,3 @@ This project is licensed under the terms of the license in `LICENSE`.
 ---
 
 Questions? Open an issue or check the docs in `Documentations/`.
-
-## Screenshots
-
-Below are a few screenshots from the current build demonstrating the landing page, IDE, dashboard, and keyboard UI.
-
-Landing page
-![Landing page](Screenshots/LandingPage.png)
-
-IDE
-![IDE](Screenshots/IDE.png)
-
-Dashboard
-![Dashboard](Screenshots/Dashboard.png)
-
-Keyboard & shortcuts UI
-![Keyboard UI](Screenshots/KeyboardUI.png)
