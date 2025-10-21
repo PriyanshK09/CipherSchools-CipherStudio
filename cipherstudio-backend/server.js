@@ -5,6 +5,7 @@ import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import compression from "compression";
+import mongoose from "mongoose";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
@@ -35,6 +36,26 @@ app.use(morgan("dev"));
 app.get("/", (_req, res) => {
   res.json({ status: "ok", message: "CipherStudio API" });
 });
+
+// Health checks
+const dbStateMap = {
+  0: "disconnected",
+  1: "connected",
+  2: "connecting",
+  3: "disconnecting"
+};
+
+const healthHandler = (_req, res) => {
+  res.status(200).json({
+    status: "ok",
+    uptime: Number(process.uptime().toFixed(0)),
+    timestamp: new Date().toISOString(),
+    database: dbStateMap[mongoose.connection.readyState] || "unknown"
+  });
+};
+
+app.get("/healthz", healthHandler);
+app.get("/api/health", healthHandler);
 
 app.use("/api/users", userRoutes);
 app.use("/api/projects", projectRoutes);
