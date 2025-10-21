@@ -1,0 +1,172 @@
+/* Live collaboration cursor styling */
+.remote-caret {
+  border-left: 2px solid #f59e0b; /* amber-500 */
+  margin-left: -1px;
+}
+
+.remote-cursor {
+  position: relative;
+}
+
+@keyframes remote-caret-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.remote-caret {
+  animation: remote-caret-blink 1.2s step-end infinite;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at 20% 10%, rgba(245, 158, 11, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 90%, rgba(234, 179, 8, 0.10), transparent 40%),
+    #0b0f14; /* near-black */
+  color: #eaeef2;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Subtle grain for hero background */
+.hero-noise {
+  position: relative;
+}
+.hero-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/ filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+/* CodeMirror font size override for Sandpack editor */
+.cm-editor {
+  font-size: var(--editor-font-size, 13px);
+  line-height: 1.5;
+}
+
+/* Monaco inline decoration for search result */
+.editor-search-hit {
+  background-color: rgba(245, 158, 11, 0.35); /* amber-500/35 */
+  border-radius: 2px;
+}
+
+/* Light theme surface overrides (expanded) */
+.theme-light { color-scheme: light; }
+/* Text tones */
+.theme-light .text-slate-100 { color: #0f172a; }
+.theme-light .text-slate-200 { color: #111827; }
+.theme-light .text-slate-300 { color: #1f2937; }
+.theme-light .text-slate-400 { color: #374151; }
+.theme-light .text-slate-500 { color: #6b7280; }
+/* Borders */
+.theme-light .border-slate-800\/60 { border-color: rgba(203, 213, 225, 0.6); }
+.theme-light .border-slate-800\/70 { border-color: rgba(203, 213, 225, 0.7); }
+.theme-light .border-slate-700\/80 { border-color: rgba(203, 213, 225, 0.8); }
+/* Backgrounds mapped to light neutrals with translucency */
+.theme-light .bg-slate-950\/95 { background-color: rgba(248, 250, 252, 0.95); }
+.theme-light .bg-slate-950\/90 { background-color: rgba(248, 250, 252, 0.9); }
+.theme-light .bg-slate-950\/80 { background-color: rgba(248, 250, 252, 0.8); }
+.theme-light .bg-slate-950\/60 { background-color: rgba(248, 250, 252, 0.6); }
+.theme-light .bg-slate-900\/90 { background-color: rgba(241, 245, 249, 0.9); }
+.theme-light .bg-slate-900\/70 { background-color: rgba(241, 245, 249, 0.7); }
+.theme-light .bg-slate-900\/60 { background-color: rgba(241, 245, 249, 0.6); }
+.theme-light .bg-slate-900\/50 { background-color: rgba(241, 245, 249, 0.5); }
+.theme-light .bg-slate-800\/90 { background-color: rgba(226, 232, 240, 0.9); }
+.theme-light .bg-slate-800\/70 { background-color: rgba(226, 232, 240, 0.7); }
+.theme-light .bg-slate-800\/60 { background-color: rgba(226, 232, 240, 0.6); }
+/* Gradient background for the main IDE surface when theme-light is present */
+.theme-light.ide-surface {
+  background: radial-gradient(circle at 20% 10%, rgba(245, 158, 11, 0.12), transparent 45%),
+              radial-gradient(circle at 80% 90%, rgba(234, 179, 8, 0.10), transparent 40%),
+              #f7f7f7; /* light neutral */
+  color: #0b0f14; /* near-black text */
+}
+
+
+::selection {
+  background: rgba(245, 158, 11, 0.35);
+  color: #0b0f14;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(2, 6, 12, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.45);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.65);
+}
+
+/* Floating icon animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(-5deg);
+  }
+}
+
+.floating-icon {
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-icon-delayed {
+  animation: float-delayed 10s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg,
+    rgba(148,163,184,0.08) 25%,
+    rgba(255,255,255,0.18) 37%,
+    rgba(148,163,184,0.08) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}
